@@ -1,5 +1,7 @@
 'use client';
 
+import useSearchModal from "@/app/hooks/useSearchModal";
+
 const SearchFilters = () => {
     const searchModal = useSearchModal();
 
