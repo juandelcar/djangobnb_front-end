@@ -7,52 +7,6 @@ import PropertyListItem from "./PropertyListItem";
 import apiService from '@/app/services/apiService';
 import useSearchModal from '@/app/hooks/useSearchModal';
 
-export type PropertyType = {
-    id: string;
-    title: string;
-    image_url: string;
-    price_per_night: number;
-    is_favorite: boolean;
-}
-
-interface PropertyListProps {
-    landlord_id?: string | null;
-    favorites?: boolean | null;
-}
-
-const PropertyList: React.FC<PropertyListProps> = ({
-    landlord_id,
-    favorites
-}) => {
-    const params = useSearchParams();
-    const searchModal = useSearchModal();
-    const country = searchModal.query.country;
-    const numGuests = searchModal.query.guests;
-    const numBathrooms = searchModal.query.bathrooms;
-    const numBedrooms = searchModal.query.bedrooms;
-    const checkinDate = searchModal.query.checkIn;
-    const checkoutDate = searchModal.query.checkOut;
-    const category = searchModal.query.category;
-    const [properties, setProperties] = useState<PropertyType[]>([]);
-
-    console.log('searchQUery:', searchModal.query);
-    console.log('numBedrooms', numBedrooms)
-
-    const markFavorite = (id: string, is_favorite: boolean) => {
-        const tmpProperties = properties.map((property: PropertyType) => {
-            if (property.id == id) {
-                property.is_favorite = is_favorite
-
-                if (is_favorite) {
-                    console.log('added to list of favorited propreties')
-                } else {
-                    console.log('removed from list')
-                }
-            }
-
-            return property;
-        })
-
         setProperties(tmpProperties);
     }
 
