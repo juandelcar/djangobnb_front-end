@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import SearchFilters from './Searchfilters';
+import SearchFilters from './SearchFilters';
 import UserNav from './UserNav';
 import { getUserId } from '@/app/lib/actions';
 import AddPropertyButton from './AddPropertyButton';
